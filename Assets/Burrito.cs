@@ -5,28 +5,36 @@ using System.Collections.Generic;
 public class Burrito
 {
 	public string name = "";
-	public List<String> ingredients = new List<String>();
+	public List<Ingredient> ingredients = new List<Ingredient>();
 
 	public Burrito (String burritoName)
 	{
 		name = burritoName;
 	}
 
-	public void AddIngredient(String ingredient) {
+	public void AddIngredient(Ingredient ingredient) {
 		ingredients.Add (ingredient);
 	}
 
-	public string IngredientString() {
+	public string GetIngredientString() {
 		string output = name + ":";
 		bool addComma = false;
-		foreach (string ingredient in ingredients) {
+		foreach (Ingredient ingredient in ingredients) {
 			if(addComma) {
 				output += ", ";
 			}
-			output += ingredient;
+			output += ingredient.name;
 			addComma = true;
 		}
 		return output;
 	}
+
+    public Double GetCost() {
+        Double cost = 0.0;
+        foreach (Ingredient ingredient in ingredients) {
+            cost += ingredient.cost;
+        }
+        return cost;
+    }
 }
 
