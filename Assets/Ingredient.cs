@@ -9,7 +9,9 @@ public class Ingredient
 	public double mass;
 	public double cost;
 
-	public Ingredient (String name, Color color, double mass, double cost) {
+    static private System.Random ImSoRaandom = new System.Random();
+
+    public Ingredient (String name, Color color, double mass, double cost) {
         this.name = name;
         this.color = color;
         this.mass = mass;
@@ -18,8 +20,7 @@ public class Ingredient
 	}
 
     static public Ingredient GetRandomIngredient() {
-        System.Random r = new System.Random();
-        int rInt = r.Next(0, ingredients.Count);
+        int rInt = ImSoRaandom.Next(0, ingredients.Count);
         return ingredients[rInt];
     }
 }

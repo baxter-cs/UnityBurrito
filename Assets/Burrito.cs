@@ -29,6 +29,22 @@ public class Burrito
 		return output;
 	}
 
+    // TODO: Make this work for new ingredients without having to manually add if statements
+    public string debugIngredients() {
+        string output = "";
+        int numberOfKetchups = 0;
+        int numberOfLettuces = 0;
+        foreach (Ingredient Dingredient in ingredients) {
+            if (Dingredient.name == "ketchup") {
+                numberOfKetchups++;
+            } else if (Dingredient.name == "lettuce") {
+                numberOfLettuces++;
+            }
+        }
+        output = "Ketchup: " + numberOfKetchups + "\n" + "Lettuce: " + numberOfLettuces;
+        return output;
+    }
+
     public Double GetCost() {
         Double cost = 0.0;
         foreach (Ingredient ingredient in ingredients) {
